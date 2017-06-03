@@ -1,5 +1,6 @@
 <?php
 require_once("config/db.php");
+
 if(!empty($_GET['type']) && !empty($_GET['date1']) && !empty($_GET['date2']))
 {
     $type = $_GET['type'];
@@ -66,7 +67,6 @@ if(!empty($_GET['type']) && !empty($_GET['date1']) && !empty($_GET['date2']))
 
                 $returnArr[] = array("date"=>$item['date'],"year"=>$year, "month"=>$month, "day"=>$day, "hour"=>$hour, "minute"=>$minute, "val"=>$val);
             }
-
             echo json_encode($returnArr);
             break;
         case "pressure":
@@ -77,14 +77,7 @@ if(!empty($_GET['type']) && !empty($_GET['date1']) && !empty($_GET['date2']))
             $result = $select->fetchAll(PDO::FETCH_ASSOC);
             echo json_encode($result);
             break;
-
     }
-
-
-
-
-
-
 
 }
 
